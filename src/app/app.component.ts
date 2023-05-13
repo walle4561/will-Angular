@@ -13,5 +13,10 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AppComponent {
   // title = 'demo2';
+  counter = 0;
   title = environment.api;
+  search() {
+    this.counter++;
+    console.log('test');
+  }
 }
