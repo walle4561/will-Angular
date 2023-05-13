@@ -15,8 +15,15 @@ export class AppComponent {
   // title = 'demo2';
   counter = 0;
   title = environment.api;
-  search() {
+  search(event: MouseEvent) {
+    console.log(event);
     this.counter++;
     console.log('test');
+  }
+  inputKeyup(event: KeyboardEvent) {
+    console.log(event.key)
+    if (event.key == 'Enter') {
+      console.log((event.target as HTMLInputElement).value);
+    }
   }
 }
