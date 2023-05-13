@@ -13,8 +13,10 @@ export class HeaderComponent {
   url = 'http://blog.miniasp.com/';
   isHighlight = false;
   h3Color = 'red';
+  displayHeader = false;
 
   toggleHighlight() {
+    this.displayHeader = !this.displayHeader;
     this.isHighlight = !this.isHighlight;
     this.h3Color = this.h3Color === 'red' ? 'black' : 'red';
   }
