@@ -20,10 +20,16 @@ export class AppComponent {
     this.counter++;
     console.log('test');
   }
+
   inputKeyup(event: KeyboardEvent) {
-    console.log(event.key)
+    console.log(event.key);
     if (event.key == 'Enter') {
       console.log((event.target as HTMLInputElement).value);
     }
+  }
+
+  searchByEnter(event: Event) {
+    const newEvent = event as KeyboardEvent;
+    console.log('search by enter', newEvent.altKey);
   }
 }
