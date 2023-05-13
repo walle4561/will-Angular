@@ -1,29 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
+import { environment } from 'src/environments/environment';
+import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FormsModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // title = 'demo2';
-  counter = 0;
+  @ViewChild('inputText') inputText?: ElementRef;
+
   title = environment.api;
+  counter = 0;
+  keyword = 'test';
+
   search(event: MouseEvent) {
-    console.log(event);
+    console.log(this.inputText?.nativeElement as HTMLInputElement);
+    console.log(event.clientY);
+    console.log('search');
     this.counter++;
-    console.log('test');
   }
 
   inputKeyup(event: KeyboardEvent) {
     console.log(event.key);
-    if (event.key == 'Enter') {
+    if (event.key === 'Enter') {
       console.log((event.target as HTMLInputElement).value);
     }
   }

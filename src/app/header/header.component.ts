@@ -11,4 +11,11 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   title = 'The Will Will Web';
   url = 'http://blog.miniasp.com/';
+  isHighlight = false;
+  h3Color = 'red';
+
+  toggleHighlight() {
+    this.isHighlight = !this.isHighlight;
+    this.h3Color = this.h3Color === 'red' ? 'black' : 'red';
+  }
 }
